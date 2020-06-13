@@ -1,0 +1,17 @@
+# this is playbook
+---
+- name: Install Java and Jenkins
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+
+  vars:
+    # jenkins_hostname: jenkins.example.com
+    java_packages:
+      - openjdk-11-jdk
+
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.jenkins
+    
